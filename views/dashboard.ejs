@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventhub | Organiser Dashboard</title>
+    <link rel="stylesheet" href="/all.css" />
+    <link rel="stylesheet" href="/dashboard.css" />
+  </head>
+  <body>
+    <%- include("partials/navbarOrganiser.ejs") %> <% if (events) { %>
+    <main>
+      <h1>Public Events</h1>
+      <div class="container">
+        <% if (events.length>0) { %> <% events.forEach(event => { %>
+        <div class="card">
+          <a href="/dashboard/events/<%= event._id.toString() %>">
+            <div class="img-wrapper">
+              <img
+                src="data:<%= event.img.contentType %>;base64,<%= event.img.data.toString('base64') %>"
+                alt="Event Image"
+                loading="lazy"
+              />
+            </div>
+            <div class="event-info-wrapper">
+              <h2 class="event-name"><%= event.name %></h2>
+              <div class="event-info">
+                <p class="card-footer">
+                  <img src="/svgs/location-dot-solid.svg" class="svg" />
+                  <%= event.location.city %>
+                </p>
+                <p class="card-footer">
+                  <img src="/svgs/ticket-solid.svg" class="svg" />
+                  <%= event.tickets %>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <% }); %> <% } %>
+      </div>
+      <% if (privateEvents.length>0) { %>
+      <h1>Private Events</h1>
+      <div class="container">
+        <% if (privateEvents) { %> <% privateEvents.forEach(event => { %>
+        <div class="cardP">
+          <a href="/dashboard/privateEvents/<%= event._id.toString() %>">
+            
+            <div class="event-info-wrapper">
+              <h2 class="event-name"><%= event.name %></h2>
+              <div class="event-info">
+                <p class="card-footerP">
+                  <img src="/svgs/location-dot-solid.svg" class="svg" />
+                  <%= event.location.city %>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <% }); %> <% } %>
+      </div>
+      <% } %>
+    </main>
+    <% } %> <%- include("partials/footer.ejs") %>
+    <script src="/navbar.js"></script>
+    <script src="/createEditEvent.js"></script>
+  </body>
+</html>

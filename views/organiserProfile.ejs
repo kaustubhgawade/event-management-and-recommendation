@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/meta.ejs") %>
+    <title>Eventhub | User Details</title>
+    <link rel="stylesheet" href="/all.css" />
+    <link rel="stylesheet" href="/userProfile.css" />
+  </head>
+  <body>
+    <%- include("partials/navbarOrganiser.ejs") %>
+    <main>
+      <% if (organiserData) { %>
+      <form
+        method="post"
+        action="/organiserProfile/updateOrganiserData?_method=PATCH"
+      >
+        <label for="fullname">
+          First Name: <br />
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="Full name"
+            value="<%= organiserData.fullname %>"
+            class="form-elements"
+          />
+        </label>
+        <label for="email">
+          Email: <br />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            value="<%= organiserData.email %>"
+            class="form-elements"
+          />
+        </label>
+        <label for="mobilenumber">
+          Mobile Number: <br />
+          <input
+            type="number"
+            name="mobilenumber"
+            id="mobilenumber"
+            placeholder="Mobile Number"
+            value="<%= organiserData.mobilenumber %>"
+            class="form-elements"
+          />
+        </label>
+        <label for="city">
+          City: <br />
+          <input
+            type="text"
+            name="city"
+            id="city"
+            value="<%= organiserData.city %>"
+            class="form-elements"
+          />
+        </label>
+        <label for="birthdate">
+          <fieldset>
+            <legend>Birthdate</legend>
+            <input
+              type="number"
+              name="date"
+              id="date"
+              placeholder="dd"
+              min="1"
+              max="31"
+              value="<%= organiserData.birthdate.date %>"
+              class="form-elements"
+            />
+            <input
+              type="number"
+              name="month"
+              id="month"
+              placeholder="mm"
+              min="1"
+              max="12"
+              value="<%= organiserData.birthdate.month %>"
+              class="form-elements"
+            />
+            <input
+              type="number"
+              name="year"
+              id="year"
+              placeholder="yyyy"
+              min="1900"
+              max="2100"
+              value="<%= organiserData.birthdate.year %>"
+              class="form-elements"
+            />
+          </fieldset>
+        </label>
+        <label for="buisnessname">
+          Buisness name: <br />
+          <input
+            type="text"
+            name="buisnessname"
+            id="buisnessname"
+            value="<%= organiserData.buisnessname %>"
+            class="form-elements"
+          />
+        </label>
+        <label for="buisnessdetails">
+          Buisness details: <br />
+          <textarea
+            name="buisnessdetails"
+            id="buisnessdetails"
+            class="form-elements"
+          >
+<%= organiserData.buisnessdetails %></textarea
+          >
+        </label>
+
+        <div class="btn-container">
+          <button class="edit">Edit</button>
+        </div>
+      </form>
+      <div class="btn-container-2">
+        <a href="/logout"><button class="logout">Logout</button></a>
+      </div>
+      <% } else { %>
+      <li>User organiserData not available</li>
+      <% } %>
+    </main>
+    <%- include("partials/footer.ejs") %>
+    <script src="/navbar.js"></script>
+    <script src="/editInfo.js"></script>
+  </body>
+</html>

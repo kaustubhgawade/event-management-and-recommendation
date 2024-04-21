@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/meta.ejs") %>
+    <title>Eventhub | Create Event</title>
+    <link rel="stylesheet" href="/all.css" />
+    <link rel="stylesheet" href="/newEvent.css" />
+  </head>
+  <body>
+    <%- include("partials/navbarOrganiser.ejs") %>
+    <main>
+      <div class="container">
+        <h1>Host new Event</h1>
+        <form action="/newEvent" method="post" enctype="multipart/form-data">
+          <div class="info1">
+            <div class="basic-info">
+              <h3>Basic Information</h3>
+              <label for="ename">
+                <input
+                  type="text"
+                  name="ename"
+                  id="ename"
+                  placeholder="Event Name"
+                  class="form-elements"
+                  required
+                />
+              </label>
+              <br />
+              <label for="edesc">
+                <textarea
+                  name="edesc"
+                  id="edesc"
+                  placeholder="Description of your event"
+                  class="form-elements"
+                  required
+                ></textarea>
+              </label>
+              <fieldset class="form-elements">
+                <legend>Event Image</legend>
+                <label for="img">
+                  <input
+                    type="file"
+                    name="uploadedIImage"
+                    id="img"
+                    accept="image/*"
+                    required
+                  />
+                  <!-- <button id="upload">Upload</button> -->
+                </label>
+              </fieldset>
+            </div>
+            <div class="complete-address">
+              <h3>Address</h3>
+              <label for="address">
+                <textarea
+                  name="address"
+                  id="address"
+                  placeholder="Address"
+                  class="form-elements"
+                  required
+                ></textarea>
+              </label>
+              <label for="landmark">
+                <input
+                  type="text"
+                  name="landmark"
+                  id="landmark"
+                  placeholder="Landmark"
+                  class="form-elements"
+                />
+              </label>
+              <label for="city">
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  placeholder="City"
+                  class="form-elements"
+                  required
+                />
+              </label>
+              <label for="state">
+                <input
+                  type="text"
+                  name="state"
+                  id="state"
+                  placeholder="State"
+                  class="form-elements"
+                  required
+                />
+              </label>
+              <label for="pincode">
+                <input
+                  type="number"
+                  name="pincode"
+                  id="pincode"
+                  placeholder="Pincode"
+                  class="form-elements"
+                  required
+                />
+              </label>
+            </div>
+          </div>
+          <div class="info2">
+            <div class="category">
+              <h3>Category</h3>
+              <div class="inner-category form-elements">
+                <label for="sports">
+                  <input
+                    type="radio"
+                    id="sports"
+                    value="sports"
+                    name="category"
+                  />
+                  Sports
+                </label>
+                <label for="technology">
+                  <input
+                    type="radio"
+                    id="technology"
+                    value="technology"
+                    name="category"
+                  />
+                  Technology
+                </label>
+                <label for="arts">
+                  <input type="radio" id="arts" value="arts" name="category" />
+                  Arts
+                </label>
+                <br />
+                <label for="music">
+                  <input
+                    type="radio"
+                    id="music"
+                    value="music"
+                    name="category"
+                  />
+                  Music
+                </label>
+                <label for="education">
+                  <input
+                    type="radio"
+                    id="education"
+                    value="education"
+                    name="category"
+                  />
+                  Education
+                </label>
+                <label for="history">
+                  <input
+                    type="radio"
+                    id="history"
+                    value="history"
+                    name="category"
+                  />
+                  History
+                </label>
+              </div>
+            </div>
+            <div class="date-time">
+              <h3>Date & Time</h3>
+              <div class="inner-date-time form-elements">
+                <div class="fe-date">
+                  <label for="from">
+                    From:
+                    <input
+                      type="date"
+                      name="from"
+                      id="from"
+                      oninput="setToDateConstraints()"
+                      min="<%= new Date().toISOString().split('T')[0] %>"
+                      required
+                    />
+                  </label>
+                  <label for="to">
+                    To:
+                    <input
+                      type="date"
+                      name="to"
+                      id="to"
+                      min="<%= new Date().toISOString().split('T')[0] %>"
+                      disabled
+                      required
+                    />
+                  </label>
+                </div>
+                <div class="fe-time">
+                  <label for="time"
+                    >Event Time:
+                    <input type="time" id="time" name="time" required />
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="ticket-info">
+              <h3>Ticket Information</h3>
+              <label for="ticketcount">
+                <input
+                  type="number"
+                  name="ticketcount"
+                  id="ticketcount"
+                  placeholder="Number of Tickets"
+                  class="form-elements"
+                />
+              </label>
+              <label for="ticketprice">
+                <input
+                  type="number"
+                  name="ticketprice"
+                  id="ticketprice"
+                  placeholder="Ticket Price"
+                  class="form-elements"
+                />
+              </label>
+            </div>
+            <button type="submit" class="form-elements">Create Event</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="/navbar.js"></script>
+    <script src="/createEditEvent.js"></script>
+  </body>
+</html>

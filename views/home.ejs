@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/meta.ejs") %>
+    <title>Eventhub | Find, manage, and explore diverse events</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/all.css" />
+    <link rel="stylesheet" href="/home.css" />
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %>
+    <main>
+      <section class="background">
+        <a href="/events">
+          <button class="find-events">Find events</button>
+        </a>
+      </section>
+      <section class="event-category-container">
+        <a href="events/sports">
+          <button class="event-category">
+            <img src="/events/sports.png" alt="sports" />
+            <p>Sports</p>
+          </button>
+        </a>
+        <a href="events/technology">
+          <button class="event-category">
+            <img src="/events/technology.png" alt="technology" />
+            <p>Technology</p>
+          </button>
+        </a>
+        <a href="events/arts">
+          <button class="event-category">
+            <img src="/events/arts.png" alt="arts" />
+            <p>Arts</p>
+          </button>
+        </a>
+        <a href="events/music">
+          <button class="event-category">
+            <img src="/events/music.png" alt="music" />
+            <p>Music</p>
+          </button>
+        </a>
+        <a href="events/education">
+          <button class="event-category">
+            <img src="/events/education.png" alt="education" />
+            <p>Education</p>
+          </button>
+        </a>
+        <a href="events/history">
+          <button class="event-category">
+            <img src="/events/history.png" alt="history" />
+            <p>History</p>
+          </button>
+        </a>
+      </section>
+      <div class="upcoming-events">
+        <h2>Upcoming events</h2>
+        <div class="upcoming-events-container">
+          <% if (eventData.length>0) { %> <% eventData.forEach(event =>{ %>
+          <a href="/events/<%= event.category %>/<%= event._id %>">
+            <div class="article-card">
+              <div class="content">
+                <p class="date"><%= event.from.toLocaleDateString() %></p>
+                <p class="title"><%= event.name %></p>
+              </div>
+              <img
+                src="data:<%= event.img.contentType %>;base64,<%= event.img.data.toString('base64') %>"
+                alt="Event Image"
+              />
+            </div>
+          </a>
+          <% }) %> <% } %>
+        </div>
+      </div>
+    </main>
+    <%- include("partials/footer.ejs") %>
+    <script src="/navbar.js"></script>
+  </body>
+</html>

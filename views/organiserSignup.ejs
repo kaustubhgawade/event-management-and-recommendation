@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/meta.ejs") %>
+    <title>Organiser Registration</title>
+    <link rel="stylesheet" href="/all.css" />
+    <link rel="stylesheet" href="/registration.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Create Your Account</h1>
+      <form action="/organiserSignup" method="post">
+        <label for="fullname">
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="Full Name"
+            autocomplete="given-name"
+            min="3"
+            max="50"
+            class="form-elements"
+            required
+          />
+        </label>
+        <label for="email">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            autocomplete="email"
+            class="form-elements"
+            required
+          />
+        </label>
+        <label for="mobilenumber">
+          <input
+            type="number"
+            name="mobilenumber"
+            id="mobilenumber"
+            placeholder="Mobile Number"
+            autocomplete="mobile"
+            class="form-elements"
+            required
+          />
+        </label>
+        <label for="city">
+          <input
+            type="text"
+            name="city"
+            id="city"
+            placeholder="City"
+            autocomplete="address-level1"
+            class="form-elements"
+            required
+          />
+        </label>
+        <label for="birthdate" class="date-input-group">
+          <fieldset>
+            <legend>Birthdate</legend>
+            <input
+              type="number"
+              name="date"
+              id="date"
+              placeholder="dd"
+              min="1"
+              max="31"
+              autocomplete="day"
+              class="form-elements"
+            />
+            <input
+              type="number"
+              name="month"
+              id="month"
+              placeholder="mm"
+              min="1"
+              max="12"
+              autocomplete="month"
+              class="form-elements"
+            />
+            <input
+              type="number"
+              name="year"
+              id="year"
+              placeholder="yyyy"
+              min="1900"
+              max="2100"
+              autocomplete="year"
+              class="form-elements"
+            />
+          </fieldset>
+        </label>
+        <label for="buisnessname">
+          <input
+            type="text"
+            name="buisnessname"
+            id="buisnessname"
+            placeholder="Buisness Name"
+            class="form-elements"
+            required
+          />
+        </label>
+        <label for="buisnessdesc">
+          <textarea
+            name="buisnessdesc"
+            id="buisnessdesc"
+            placeholder="Description of your company"
+            class="form-elements"
+          ></textarea>
+        </label>
+        <label for="password">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="current-password"
+            class="form-elements"
+            required
+          />
+        </label>
+        <label for="cpassword">
+          <input
+            type="password"
+            name="cpassword"
+            id="cpassword"
+            placeholder="Confirm Password"
+            class="form-elements"
+            required
+          />
+        </label>
+        <button type="submit" class="form-elements">Create Account</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,382 @@
+body {
+  background-color: var(--background-color);
+}
+.section {
+  padding: 0 3vw;
+}
+main .front-section {
+  display: flex;
+  background-color: var(--white-color);
+  height: calc(100vh - 80px);
+}
+.front-section .inner-front-section {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.front-section .fs-text-desc {
+  flex-direction: column;
+}
+.front-section .fs-text-desc h1,
+.front-section .fs-text-desc h4,
+.front-section .fs-text-desc .fs-cta {
+  margin: 10px 0;
+}
+.front-section .fs-text-desc h1 {
+  text-transform: uppercase;
+  font-size: 40px;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  padding: 20px 0;
+}
+.front-section .fs-text-desc .love {
+  color: var(--main-color);
+}
+.front-section .fs-text-desc h4 {
+  font-size: 18px;
+  width: 60%;
+  align-self: flex-start;
+  font-weight: 500;
+}
+.front-section .fs-text-desc .fs-cta {
+  width: 150px;
+  color: var(--white-color);
+  background-color: var(--button-color);
+  border: 0;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 18px;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+.front-section .fs-text-desc .fs-cta:hover {
+  background-color: #6750fc;
+  transform: scale(1.05);
+}
+.front-section .fs-img {
+  align-items: center;
+}
+.front-section .fs-img img {
+  height: 40vw;
+}
+@media (max-width: 900px) {
+  .front-section .fs-text-desc h1 {
+    font-size: 30px;
+  }
+  .front-section .fs-text-desc h4 {
+    font-size: 16px;
+    width: 60%;
+  }
+  .front-section .fs-text-desc .fs-cta {
+    width: 120px;
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 768px) {
+  main .front-section {
+    height: calc(100vh - 60px);
+  }
+  .front-section .inner-front-section {
+    width: 100%;
+  }
+  .front-section .fs-text-desc h4 {
+    width: 100%;
+  }
+}
+@media (max-width: 640px) {
+  main .front-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .front-section .fs-text-desc .fs-cta {
+    margin: 20px 0;
+  }
+  .front-section .fs-img img {
+    height: 70vw;
+  }
+}
+/* -----------------------------------------features----------------------------------------- */
+main .features-section {
+  display: flex;
+  width: 100%;
+  padding: 40px 80px;
+}
+.features-section .features {
+  background-color: var(--white-color);
+  margin: 0 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  color: var(--black-color);
+  border-radius: 8px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+.features-section .fs-img-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+}
+.features-section img {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: transform 0.4s ease;
+}
+.features img:hover {
+  transform: scale(1.05);
+}
+.features-section .fs-info {
+  padding: 10px 15px;
+}
+.features-section h4 {
+  padding: 6px 0;
+  font-size: 18px;
+}
+.features-section i {
+  display: none;
+  position: relative;
+  top: -30px;
+  left: 300px;
+}
+.features-section i:hover {
+  display: block;
+}
+@media (max-width: 900px) {
+  .features-section {
+    padding: 40px 10px !important;
+  }
+}
+@media (max-width: 700px) {
+  .features-section {
+    padding: 40px 10px;
+    flex-direction: column;
+    /* width: 80vw; */
+  }
+  .features-section .features {
+    margin: 20px auto;
+    width: 80%;
+  }
+}
+/* --------------------------------------newsletter-------------------------------------- */
+main .newsletter-section {
+  background-color: var(--new-color);
+  padding: 40px 3vw;
+  color: var(--white-color);
+}
+.newsletter-section .ns-info {
+  margin: 0 auto;
+  width: 60%;
+}
+.newsletter-section h3 {
+  text-align: center;
+  font-size: 40px;
+  margin: 10px 0;
+}
+.newsletter-section p {
+  text-align: center;
+  margin: 10px 0;
+}
+.newsletter-section .email-form {
+  margin: 10px 0;
+  text-align: center;
+  background-color: white;
+  display: flex;
+  border-radius: 40px;
+  padding: 5px;
+  width: 50%;
+  margin: 30px auto;
+  border: 2px solid black;
+}
+.newsletter-section #email-label {
+  flex: 1;
+}
+.newsletter-section #email {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  border-radius: 40px;
+  font-size: 20px;
+  padding: 0 20px;
+}
+.newsletter-section input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+.newsletter-section #subscribe {
+  font-size: 20px;
+  float: right;
+  border-radius: 40px;
+  padding: 7px 15px;
+  flex: 0 0 10%;
+  border: 0;
+  background-color: var(--new-color);
+  color: var(--white-color);
+}
+.newsletter-section #subscribe > img {
+  width: 25px;
+}
+.newsletter-section #subscribe:hover {
+  background-color: #0a2239;
+}
+@media (max-width: 1024px) {
+  .newsletter-section .email-form {
+    width: 80%;
+  }
+}
+@media (max-width: 900px) {
+  .newsletter-section #email {
+    border-radius: 30px;
+    font-size: 20px;
+    padding: 10px;
+  }
+  .newsletter-section #subscribe {
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 800px) {
+  .newsletter-section .ns-info {
+    width: 100%;
+  }
+  .newsletter-section .email-form {
+    width: 100%;
+  }
+  .newsletter-section #email {
+    font-size: initial;
+  }
+  .newsletter-section #subscribe {
+    font-size: initial;
+  }
+}
+
+@media (max-width: 500px) {
+  main .newsletter-section {
+    padding: 40px 3vw;
+  }
+}
+/* --------------------------------------contact-us-------------------------------------- */
+main .contact-us-section {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--white-color);
+  padding: 60px 40px;
+}
+.contact-us-section .cs-wrapper-1 > div {
+  width: 50vmax;
+}
+.cs-wrapper-1 .cs-head {
+  margin-bottom: 150px;
+  padding: 0 10px;
+}
+.cs-wrapper-1 h3 {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.cs-wrapper-1 .cs-head p {
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 41px;
+}
+
+.contact-us-section .location-email {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.contact-us-section .location-email > div {
+  padding: 0 10px;
+}
+.cs-wrapper-1 .le-head {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.cs-wrapper-1 .le-info {
+  font-size: 15px;
+  line-height: 24px;
+}
+.contact-us-section .cs-wrapper-2 {
+  padding: 20px 30px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.cs-wrapper-2 h3 {
+  font-weight: 600;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+.cs-wrapper-2 label {
+  font-size: 12px;
+}
+.cs-wrapper-2 form div {
+  padding: 10px 0;
+}
+.cs-wrapper-2 input,
+.cs-wrapper-2 textarea {
+  width: 100%;
+  border: 0;
+  font-size: 15px;
+  padding: 5px 2px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #e6e6e6;
+}
+.cs-wrapper-2 textarea {
+  height: 80px;
+  resize: none;
+}
+.cs-wrapper-2 button {
+  background-color: var(--button-color);
+  color: var(--white-color);
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 10px 25px;
+  margin: 10px 0;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  main .contact-us-section {
+    flex-direction: column;
+    padding: 60px 10px;
+  }
+  main .contact-us-section > div {
+    margin: 10px 0;
+  }
+  .cs-wrapper-1 .cs-head {
+    margin-bottom: 30px;
+  }
+  .cs-wrapper-1 .location,
+  .cs-wrapper-1 .email {
+    margin-bottom: 12px;
+  }
+  .cs-wrapper-1 .le-head,
+  .cs-wrapper-1 .le-email {
+    margin-bottom: 00px;
+  }
+  .cs-wrapper-2 form div {
+    margin-bottom: 18px;
+  }
+}
+.success-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: opacity 0.5s ease;
+}
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}

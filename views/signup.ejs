@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/meta.ejs") %>
+    <title>Eventhub | Signup</title>
+    <link rel="stylesheet" href="/all.css" />
+    <link rel="stylesheet" href="/registration.css" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Create Your Account</h1>
+      <form action="/signup" method="post">
+        <label for="fullname">
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="Full Name"
+            autocomplete="name"
+            min="3"
+            max="50"
+            class="form-elements"
+          />
+        </label>
+        <label for="email">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            autocomplete="email"
+            min="5"
+            max="100"
+            class="form-elements"
+          />
+        </label>
+        <label for="mobilenumber">
+          <input
+            type="number"
+            name="mobilenumber"
+            id="mobilenumber"
+            placeholder="Mobile Number"
+            autocomplete="cc-number"
+            class="form-elements"
+          />
+        </label>
+        <label for="city">
+          <input
+            type="text"
+            name="city"
+            id="city"
+            placeholder="City"
+            autocomplete="address-level1"
+            class="form-elements"
+          />
+        </label>
+        <label for="state">
+          <input
+            type="text"
+            name="state"
+            id="state"
+            placeholder="State"
+            autocomplete="address-level2"
+            class="form-elements"
+          />
+        </label>
+        <label for="pincode">
+          <input
+            type="text"
+            name="pincode"
+            id="pincode"
+            placeholder="Pincode"
+            autocomplete="postal-code"
+            class="form-elements"
+          />
+        </label>
+        <label for="birthdate" class="date-input-group">
+          <fieldset>
+            <legend>Birthdate</legend>
+            <input
+              type="number"
+              name="date"
+              id="date"
+              placeholder="dd"
+              min="1"
+              max="31"
+              autocomplete="day"
+              class="form-elements"
+            />
+            <input
+              type="number"
+              name="month"
+              id="month"
+              placeholder="mm"
+              min="1"
+              max="12"
+              autocomplete="month"
+              class="form-elements"
+            />
+            <input
+              type="number"
+              name="year"
+              id="year"
+              placeholder="yyyy"
+              min="1900"
+              max="2100"
+              autocomplete="year"
+              class="form-elements"
+            />
+          </fieldset>
+        </label>
+        <label for="interests">
+          <fieldset>
+            <legend>Interests</legend>
+            <div>
+              <input
+                type="checkbox"
+                id="sports"
+                name="interests"
+                value="sports"
+              />
+              <label for="sports">Sports</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="technology"
+                name="interests"
+                value="technology"
+              />
+              <label for="technology">Technology</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="education"
+                name="interests"
+                value="education"
+              />
+              <label for="education">Education</label>
+            </div>
+            <div>
+              <input type="checkbox" id="art" name="interests" value="art" />
+              <label for="art">Art</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="music"
+                name="interests"
+                value="music"
+              />
+              <label for="music">Music</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="history"
+                name="interests"
+                value="history"
+              />
+              <label for="history">History</label>
+            </div>
+          </fieldset>
+        </label>
+        <label for="password">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="current-password"
+            min="8"
+            max="64"
+            class="form-elements"
+          />
+        </label>
+        <label for="cpassword">
+          <input
+            type="password"
+            name="cpassword"
+            id="cpassword"
+            placeholder="Confirm Password"
+            min="8"
+            max="64"
+            class="form-elements"
+          />
+        </label>
+        <button type="submit" class="form-elements">Signup</button>
+      </form>
+      <p class="signup-login-link">
+        Already have an account? <a href="login">Login</a>
+      </p>
+    </div>
+  </body>
+</html>

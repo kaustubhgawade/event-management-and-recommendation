@@ -1,0 +1,66 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <%- include("partials/meta.ejs") %>
+      <link rel="stylesheet" href="/all.css" />
+      <link rel="stylesheet" href="/eventsContainer.css" />
+      <link rel="stylesheet" href="/noEvents.css" />
+      <title>Eventhub | <%= title %> Events</title>
+    </head>
+    <body>
+      <%- include("partials/header.ejs") %>
+      <main>
+        <div class="filterSearch">
+          <input type="text" id="searchInput" placeholder="Enter event name" />
+          <div class="sortDropdown">
+            <button id="sortButton">Sort by</button>
+            <div class="dropdownContent">
+              <span href="#" id="sortByDate">Sort by Date</span>
+              <span href="#" id="sortByPopular">Sort by Popular</span>
+            </div>
+          </div>
+        </div>
+        <div class="container" data-eventdata="<%= JSON.stringify(eventData) %>">
+          <% if (eventData.length > 0) { %>
+          <!-- iterating over each event -->
+          <% eventData.forEach(event => { %>
+          <a href="<%= event.category %>/<%= event._id.toString() %>">
+            <div class="slides">
+              <div class="img-wrapper">
+                <img
+                  src="data:<%= event.img.contentType %>;base64,<%= event.img.data.toString('base64') %>"
+                  alt="Event Image"
+                />
+              </div>
+              <div class="info-wrapper">
+                <h2 class="name"><%= event.name %></h2>
+                <div class="more-info">
+                  <p class="location"><%= event.location.city %></p>
+                  <div>
+                    <p class="from">
+                      <%= new Date(event.from).toLocaleDateString('en-GB', { day:
+                      '2-digit', month: '2-digit', year: 'numeric' }) %>
+                    </p>
+                    <p class="to">
+                      <%= new Date(event.to).toLocaleDateString('en-GB', { day:
+                      '2-digit', month: '2-digit', year: 'numeric' }) %>
+                    </p>
+                  </div>
+                  <p class="tickets"><%= event.tickets %></p>
+                  <p class="host"><%= event.hostedby %></p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <% }); %> <% } else { %>
+          <!-- No Events -->
+          <%- include("partials/noEvents.ejs") %> <% } %>
+        </div>
+        
+      </main>
+
+      <%- include("partials/footer.ejs") %>
+      <script src="/navbar.js"></script>
+      <script src="/sortEvents.js"></script>
+    </body>
+  </html>

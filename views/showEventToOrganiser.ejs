@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/meta.ejs") %>
+    <title>Eventhub | <%= eventData.name %></title>
+    <link rel="stylesheet" href="/all.css" />
+    <link rel="stylesheet" href="/showEvent.css" />
+  </head>
+  <body>
+    <%- include("partials/navbarOrganiser.ejs") %>
+    <main>
+      <div class="img-wrapper">
+        <img
+          src="data:<%= eventData.img.contentType %>;base64,<%= eventData.img.data.toString('base64') %>"
+          alt="Event Image"
+        />
+        <a href="/dashboard/<%= eventData._id %>/edit">
+            <button class="edit-btn">Edit</button>
+        </a>
+        <form action="/delete-event/<%= eventData._id %>?_method=DELETE" method="post">
+          <button class="delete-btn">Delete</button>
+        </form>        
+        <div class="tickets-left-price">
+          <span>Available: </span><%= eventData.tickets %>
+        </div>
+        <div class="tickets-left-price">
+          <span>Price: </span><%= eventData.ticketPrice %> &#x20b9
+        </div>
+      </div>
+      <div class="info-wrapper">
+        <div class="title">
+          <h1><%= eventData.name %></h1>
+          <p>
+            <a href="#">Visit for more information</a>
+          </p>
+        </div>
+        <hr />
+        <div class="body">
+          <div class="desc">
+            <h3>Description</h3>
+            <p><%= eventData.desc %></p>
+          </div>
+          <div class="type">
+            <h3>Category</h3>
+            <div><%= eventData.category %></div>
+          </div>
+          <div class="date-time">
+            <h3>Date & Time</h3>
+            <% if (eventData.from === eventData.to) { %>
+            <div class="from">Date:<%= eventData.from.toLocaleDateString() %></div>
+            <% } else { %>
+            <span class="from">From: <%= eventData.from.toLocaleDateString() %></span>
+            <span class="to">To: <%= eventData.to.toLocaleDateString() %></span>
+            <% } %> <% if (eventData.time) { %>
+
+            <div class="time">Time:<%= eventData.time %></div>
+            <% } %>
+          </div>
+
+          <div class="location">
+            <h3>Address</h3>
+            <div>
+              <%= eventData.location.area %> , <%= eventData.location.landmark
+              %>
+            </div>
+            <div>
+              <%= eventData.location.city %>, <%= eventData.location.pincode %>
+            </div>
+            <p><%= eventData.location.state %></p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include("partials/footer.ejs") %>
+    <script src="/navbar.js"></script>
+    <script>
+      const paymentData = {
+        name: "<%= eventData.name %>",
+        price: "<%= eventData.ticketPrice %>",
+      };
+
+      document
+        .getElementById("checkout")
+        .addEventListener("click", async function () {
+          try {
+            const response = await fetch("/create-checkout-session", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(paymentData),
+            });
+
+            const { sessionId } = await response.json();
+
+            // Redirect to the Stripe checkout session URL through the proxy route
+            window.location.href = `/stripe-redirect/${sessionId}`;
+            window.location.target = "_blank";
+          } catch (error) {
+            console.error("Error:", error);
+          }
+        });
+    </script>
+  </body>
+</html>

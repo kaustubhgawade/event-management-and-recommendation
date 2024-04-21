@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/meta.ejs") %>
+
+    <title>Eventhub</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/all.css" />
+    <link rel="stylesheet" href="/landingpage.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/">
+          <h1 class="logo activeLink">
+            <img src="/eventhub.png" alt="eventhub logo" height="60" />
+          </h1>
+        </a>
+        <button class="navbar-toggler">
+          <span class="icon"></span>
+        </button>
+        <ul class="nav-items-wrapper">
+          <li class="nav-items">
+            <a href="/" class="nav-item-links">Home</a>
+          </li>
+          <li class="nav-items">
+            <a href="/login" class="nav-item-links">Login</a>
+          </li>
+          <li class="nav-items">
+            <a href="/signup" class="nav-item-links">Signup</a>
+          </li>
+          <li class="nav-items">
+            <a href="/organiserSignup" class="nav-item-links">Organiser</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="front-section section">
+        <div class="inner-front-section fs-text-desc">
+          <h1>
+            The event finder platform that you'll fall in
+            <span class="love">love</span>.
+          </h1>
+          <p>
+            Discover seamless event planning and a world of diverse gatherings
+            at your fingertips - your ultimate event finder platform awaits
+          </p>
+          <a href="/signup"><button class="fs-cta">Register Now</button></a>
+        </div>
+        <div class="inner-front-section fs-img">
+          <img
+            src="/hero-section-bg-image.png"
+            alt="background image for hero section"
+          />
+        </div>
+      </section>
+      <section class="features-section section">
+        <div class="features" id="feature1">
+          <div class="fs-img-wrapper">
+            <img src="/feature-events1.jpg" alt="concert" />
+          </div>
+          <div class="fs-info">
+            <h4>Event Suggestions</h4>
+            <p>
+              Tailored Suggestions: Curates events based on preferences,
+              ensuring a personalized experience for every user.
+            </p>
+          </div>
+        </div>
+        <div class="features" id="feature2">
+          <div class="fs-img-wrapper">
+            <img src="/feature-events2.jpg" alt="dj party" />
+          </div>
+          <div class="fs-info">
+            <h4>Manage Your Events</h4>
+            <p>
+              Simplified Control: Intuitive interface allows easy addition,
+              deletion, and seamless management of events.
+            </p>
+          </div>
+        </div>
+        <div class="features" id="feature3">
+          <div class="fs-img-wrapper">
+            <img src="/feature-events3.jpg" alt="conference" />
+          </div>
+          <div class="fs-info">
+            <h4>Discover New Events</h4>
+            <p>
+              Proximity-Based Searches: Helps users discover nearby events and
+              activities, enhancing local event exploration.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="newsletter-section section">
+        <div class="ns-info">
+          <h3>Subscribe to our Newsletter</h3>
+          <p>
+            Hey there! We promise—no inbox invasion, just the good stuff! Our
+            newsletter is like that friendly neighbor who brings cookies, not
+            chaos. Expect updates on exciting events, exclusive deals (nope, not
+            the ones cluttering your inbox), and maybe a joke or two
+          </p>
+        </div>
+
+        <div class="email-form">
+          <label for="email" id="email-label">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              autocomplete="email"
+          /></label>
+
+          <button id="subscribe" aria-label="subscribe">
+            <img src="/bell.png" alt="" />
+          </button>
+        </div>
+      </section>
+      <div class="contact-us-section section">
+        <div class="cs-wrapper-1">
+          <div class="cs-head">
+            <h3>Contact Us</h3>
+            <p>Got a question? We'd love to hear from you!</p>
+          </div>
+          <div class="location-email">
+            <div class="location">
+              <p class="le-head">Our Location</p>
+              <p class="le-info">Mumbai, Maharashtra, India</p>
+            </div>
+            <div class="email">
+              <p class="le-head">How Can We Help</p>
+              <p class="le-info">eventhubhelp@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="cs-wrapper-2">
+          <h3>Send us a Message</h3>
+          <form action="/send-msg" method="post">
+            <div>
+              <label for="name">Full Name*</label> <br />
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="John Doe"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <div>
+              <label for="email">Email*</label> <br />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="example@gmail.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div>
+              <label for="message">Message*</label> <br />
+              <textarea
+                name="message"
+                id="message"
+                placeholder="We will be pleased to hear from you"
+                required
+              ></textarea>
+            </div>
+            <div>
+              <button type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="success-message" class="success-message hidden">
+        Message sent successfully!
+      </div>
+    </main>
+
+    <%- include("partials/footer.ejs") %>
+
+    <script src="/navbar.js"></script>
+    <script src="/messageSend.js"></script>
+
+  </body>
+</html>

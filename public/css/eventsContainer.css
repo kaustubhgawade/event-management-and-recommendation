@@ -1,0 +1,150 @@
+main {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+  color: var(--black-color);
+}
+.filterSearch {
+  display: flex;
+  width: 80%;
+  margin: 10px auto;
+}
+.filterSearch input {
+  flex: 1;
+  margin-right: 5px;
+  padding: 10px 20px;
+}
+.filterSearch #sortButton {
+  border: 0;
+  background-color: var(--grey-color);
+  padding: 10px 15px;  
+  height: 100%;
+}
+.sortDropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  
+}
+.dropdownContent span {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdownContent span:hover {
+  background-color: #f1f1f1;
+}
+
+.sortDropdown:hover .dropdownContent {
+  display: block;
+}
+.container {
+  width: 80vw;
+  /* background-color: var(--grey-color); */
+}
+.slides {
+  display: flex;
+  margin: 10px 0;
+  padding: 10px;
+  cursor: pointer;
+  min-width: 460px;
+  background-color: var(--tile-color-2);
+}
+.name{
+  font-size: 20px;
+}
+.img-wrapper {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  width: 100%;
+  align-self: self-start;
+}
+@media screen and (max-width: 1024px) {
+  .slides {
+    height: 150px;
+  }
+  .img-wrapper {
+    width: 200px;
+  }
+}
+.info-wrapper {
+  padding: 0px 20px;
+}
+.name {
+  font-size: 20px;
+}
+@media screen and (max-width: 650px) {
+  .name {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+  .slides {
+    min-width: auto;
+    height: 120px;
+    align-items: center;
+  }
+  .img-wrapper {
+    width: 150px;
+    align-items: start;
+    min-width: 150px;
+  }
+  .info-wrapper {
+    padding: 0;
+    padding-left: 10px;
+  }
+  .name {
+    font-size: 18px;
+    white-space: wrap;
+    overflow: hidden;
+    width: 180px;
+    text-overflow: ellipsis;
+  }
+  .from,
+  .to {
+    display: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  .slides {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: fit-content;
+  }
+  .img-wrapper {
+    width: 250px;
+  }
+  .info-wrapper {
+    /* width: 250px; */
+    padding: 10px 20px;
+    align-self: self-start;
+  }
+  .name {
+    width: 100%;
+  }
+}
+

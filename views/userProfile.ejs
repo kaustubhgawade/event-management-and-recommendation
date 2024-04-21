@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/meta.ejs") %>
+    <title>Eventhub | User Details</title>
+    <link rel="stylesheet" href="/all.css" />
+    <link rel="stylesheet" href="/userProfile.css" />
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %>
+    <main>
+      <% if (userData) { %>
+      <form method="post" action="/userProfile/updateUserData?_method=PATCH">
+        <label for="fullname">
+          First Name: <br />
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="Full name"
+            value="<%= userData.fullname %>"
+            class="form-elements"
+          />
+        </label>
+        <label for="email">
+          Email: <br />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            value="<%= userData.email %>"
+            class="form-elements"
+          />
+        </label>
+        <label for="mobilenumber">
+          Mobile Number: <br />
+          <input
+            type="number"
+            name="mobilenumber"
+            id="mobilenumber"
+            placeholder="Mobile Number"
+            value="<%= userData.mobilenumber %>"
+            class="form-elements"
+          />
+        </label>
+        <label for="city">
+          City: <br />
+          <input
+            type="text"
+            name="city"
+            id="city"
+            placeholder="City"
+            value="<%= userData.location.city %>"
+            class="form-elements"
+          />
+        </label>
+        <label for="state">
+          State <br />
+          <input
+            type="text"
+            name="state"
+            id="state"
+            placeholder="State"
+            value="<%= userData.location.state %>"
+            class="form-elements"
+          />
+        </label>
+        <label for="pincode">
+          Pincode <br />
+          <input
+            type="text"
+            name="pincode"
+            id="pincode"
+            placeholder="Pincode"
+            value="<%= userData.location.pincode %>"
+            class="form-elements"
+          />
+        </label>
+        <label for="birthdate">
+          <fieldset>
+            <legend>Birthdate</legend>
+            <input
+              type="number"
+              name="date"
+              id="date"
+              placeholder="dd"
+              min="1"
+              max="31"
+              value="<%= userData.birthdate.date %>"
+              class="form-elements"
+            />
+            <input
+              type="number"
+              name="month"
+              id="month"
+              placeholder="mm"
+              min="1"
+              max="12"
+              value="<%= userData.birthdate.month %>"
+              class="form-elements"
+            />
+            <input
+              type="number"
+              name="year"
+              id="year"
+              placeholder="yyyy"
+              min="1900"
+              max="2100"
+              value="<%= userData.birthdate.year %>"
+              class="form-elements"
+            />
+          </fieldset>
+        </label>
+        <label for="interest">
+          <fieldset>
+            <legend>Interests</legend>
+            <% for( let index = 0; index < validCategories.length; index++ ) { %>
+            <label for="<%= validCategories[index] %>">
+              <input
+                type="checkbox"
+                id="<%= validCategories[index] %>"
+                name="interest"
+                value="<%= validCategories[index] %>"
+                class="form-elements"
+                <% if (userData.interest.includes(validCategories[index])) { %>
+                  checked 
+                <% } %>
+                /> 
+                <%= validCategories[index] %>
+            </label>
+            <% } %>
+          </fieldset>
+        </label>
+        <div class="btn-container">
+          <button class="edit">Edit</button>
+        </div>
+      </form>
+      <div class="btn-container-2">
+          <a href="/logout"><button class="logout">Logout</button></a>
+      </div>
+      <% } else { %>
+      <li>User userData not available</li>
+      <% } %>
+    </main>
+    <%- include("partials/footer.ejs") %>
+    <script src="/navbar.js"></script>
+    <script src="/editInfo.js"></script>
+  </body>
+</html>

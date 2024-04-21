@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  padding: 0 20vw;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin: 8px 0;
+}
+fieldset {
+  width: 50%;
+  display: flex;
+  padding: 4px 8px;
+  border: 2px solid var(--border-color);
+}
+fieldset > input {
+  margin: 0 4px;
+}
+input,
+textarea {
+  width: 50%;
+  resize: none;
+  padding: 4px 8px;
+  margin: 2px 0;
+}
+textarea {
+  height: 100px;
+  overflow-y: scroll;
+}
+.btn-container button, .btn-container-2 button {
+  margin: 10px 5px;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.edit,
+.save {
+  background-color: #0d6efd;
+}
+.edit:hover,
+.save:hover {
+  background-color: #3087ff;
+}
+.logout {
+  background-color: #dc3444;
+}
+.logout:hover {
+  background-color: #b72a39; /* Darker Red on hover */
+}
+
+@media screen and (max-width: 768px) {
+  input {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 560px) {
+  input {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 425px) {
+  main {
+    padding: 0 20px;
+  }
+}

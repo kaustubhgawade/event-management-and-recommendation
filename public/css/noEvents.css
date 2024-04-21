@@ -1,0 +1,27 @@
+.noEvents {
+  font-size: 30px;
+  font-weight: 800;
+  padding: 20px;
+  height: calc(100vh - 80px - 185px);
+  color: var(--new-color);
+}
+@media screen and (max-width: 768px) {
+  .noEvents {
+    height: calc(100vh - 80px - 244px);
+  }
+}
+@media screen and (max-width: 640px) {
+  .noEvents {
+    height: calc(100vh - 60px - 244px);
+  }
+}
+@media screen and (max-width: 425px) {
+  .noEvents {
+    height: calc(100vh - 100px - 244px);
+  }
+}
+@media screen and (max-width: 380px) {
+  .noEvents {
+    height: calc(100vh - 100px - 298px);
+  }
+}

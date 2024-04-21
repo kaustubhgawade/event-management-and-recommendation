@@ -1,0 +1,75 @@
+.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  padding: 10px 20px 50px 20px;
+}
+main {
+  min-height: calc(100vh - 80px - 160px);
+}
+main > h1 {
+  padding: 0 20px;
+}
+a {
+  text-decoration: none;
+  color: initial;
+}
+.card {
+  height: 320px;
+  cursor: pointer;
+  background-color: var(--background-color);
+}
+.cardP {
+  height: auto;
+  cursor: pointer;
+  background-color: var(--background-color);
+  padding: 10px 20px;
+}
+.cardP:hover {
+  background: #b6b6b6;
+}
+.card .img-wrapper {
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card img {
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+.card img:hover {
+  transform: scale(1.05);
+}
+.card .event-info-wrapper {
+  padding: 0 15px;
+}
+.card .event-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.card .event-info > p {
+  overflow: hidden;
+}
+.card .event-name {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-footer {
+  display: flex;
+  gap: 5px;
+}
+.card-footerP {
+  padding: 5px 0;
+}
+.svg {
+  width: 20px;
+  height: 20px;
+}
